@@ -38,6 +38,10 @@ class LoginController extends Controller
     }
 
     public function index() {
-        echo "Páginade login";
+        return view('admin.login');
+    }
+
+    public function authenticate() {
+        
     }
 }
