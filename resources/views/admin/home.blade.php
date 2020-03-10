@@ -1,1 +1,1 @@
-PÁGINA DO PAINEL DO ADMIN
+@extends('adminlte::page')
