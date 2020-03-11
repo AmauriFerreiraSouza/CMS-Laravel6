@@ -167,13 +167,13 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'painel',//redirecio a minha dashboard para o painel
 
-    'logout_url' => 'painel/logout',
+    'logout_url' => 'painel/logout',//crio o caminho da minha rota logout
 
-    'login_url' => 'painel/login',
+    'login_url' => 'painel/login',//crio o caminho da minha rota login
 
-    'register_url' => 'painel/register',
+    'register_url' => 'painel/register',//crio o caminho da minha rota register
 
     'password_reset_url' => 'password/reset',
 

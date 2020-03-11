@@ -41,11 +41,15 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
+    /**
+     * crio meu index para exibir a tela de cadastro
+     */
     public function index() {
         return view('admin.register');
     }
-
+    /**
+     * crio meu método register para receber os dados do cadastro
+     */
     public function register(Request $request) {
         $data = $request->only([
             'name',

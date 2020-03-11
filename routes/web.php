@@ -11,9 +11,14 @@
 |
 */
 
+/**
+ *crio minha rota principal de acesso ao site 
+ */
 Route::get('/', 'Site\HomeController@index');
     
-
+/**
+ * crio o meu grupo de rotas para acessar login, logout, cadastro (register) e painel
+ */
 Route::prefix('painel')->group(function(){
     Route::get('/', 'Admin\HomeController@index')->name('admin');
 
