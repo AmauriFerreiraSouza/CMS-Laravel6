@@ -51,19 +51,21 @@ class LoginController extends Controller
     public function authenticate(Request $request) {
         $data = $request->only([
             'email',
-            'password',
-            'remember'
+            'password'
         ]);
 
         $validator = $this->validator($data);
-
+        
+        //crio uma variável para receber o valor do remember que por padrão é ON se preenchido
+        $remember = $request->input('remember', false);
+        
         if($validator->fails()) {
             return redirect()->route('login')
             ->withErrors($validator)
             ->withInput();
         }
-
-        if(Auth::attempt($data)){
+        //passo ele como segundo parâmetro no meu AUTH
+        if(Auth::attempt($data, $remember)){
             return redirect()->route('admin');
         } else {
             $validator->errors()->add('password', 'E-mail e/ou senha errados!');
