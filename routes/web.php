@@ -29,4 +29,10 @@ Route::prefix('painel')->group(function(){
     Route::post('register', 'Admin\Auth\RegisterController@register');
 
     Route::post('logout', 'Admin\Auth\LoginController@logout')->name('logout');
+
+    //rota para uso sem resource
+    //Route::get('users', 'Admin\UserController@index')->name('users');
+
+    //rota para uso com resource
+    Route::resource('users', 'Admin\UserController');
 });
