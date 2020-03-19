@@ -224,11 +224,16 @@ return [
             'icon' => 'fas fa-fw fa-user',
             'can'  => 'edit-users'
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'Configurações'],
         [
-            'text' => 'Perfil',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock'
+            'text' => 'Configurações do Site',
+            'url'  => 'painel/settings',
+            'icon' => 'fas fa-fw fa-file'
+        ],
+        [
+            'text' => 'Meu Perfil',
+            'url'  => 'painel/profile',
+            'icon' => 'fas fa-fw fa-user'
         ],
         
     ],
