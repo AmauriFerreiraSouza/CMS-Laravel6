@@ -10,7 +10,15 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
-{
+{   
+    /**
+     * criado método construtor para validar só que estiver logado ver esta tela
+     */
+    public function __construct(){
+        $this->middleware('auth');
+        //crio outro middleware para ver ser o usuário tem permissão de ver o menu de usuários
+        $this->middleware('can:edit-users');
+    }
     /**
      * Display a listing of the resource.
      * Lista na tela os meus usuários
@@ -20,8 +28,10 @@ class UserController extends Controller
     public function index()
     {   
         $users = User::orderBy('id', 'desc')->paginate(5);
+        $isLoggedId = intval(Auth::id());
         return view('admin.users.index', [
-            'users' => $users
+            'users' => $users,
+            'isLoggedId' => $isLoggedId
         ]);
     }
 
@@ -189,7 +199,7 @@ class UserController extends Controller
             $user = User::find($id);
             $user->delete();
         }
-        
+
         return redirect()->route('users.index');
     }
 }
