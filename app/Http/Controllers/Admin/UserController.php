@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -18,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {   
-        $users = User::paginate(10);
+        $users = User::orderBy('id', 'desc')->paginate(5);
         return view('admin.users.index', [
             'users' => $users
         ]);
@@ -181,6 +182,14 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //pego o id do usário logado
+        $isLoggedId = intval(Auth::id());
+        //verifico se o id do usuário que esta logado é diferente do que foi enviado para o DELETE
+        if($isLoggedId !== intval($id)) {
+            $user = User::find($id);
+            $user->delete();
+        }
+        
+        return redirect()->route('users.index');
     }
 }
