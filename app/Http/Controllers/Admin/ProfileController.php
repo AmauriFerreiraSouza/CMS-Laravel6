@@ -85,7 +85,7 @@ class ProfileController extends Controller
                 }
             }
             //jogo meu validator no final para trazer todos os erros 
-            if(count( $validator->errors() ) > 0) {
+            if(count($validator->errors() ) > 0) {
                 return redirect()->route('profile', [
                     'user'=>$isLoggedId
                 ])->withErrors($validator);
