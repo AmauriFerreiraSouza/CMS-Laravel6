@@ -3,6 +3,24 @@
 @section('title', 'Configurações')<!--coloco um titulo na minha aba-->
 
 @section('content')
+
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            <h5><i class="icon fas fa-ban"></i>Ocorreu um erro</h5>
+                @foreach ($errors->all() as $erro)
+                    <li>{{$erro}}</li>   
+                @endforeach
+        </ul>    
+    </div>
+    @endif
+
+    @if(session('warning'))
+        <div class="alert alert-success">
+            {{session('warning')}}
+        </div>
+    @endif    
+
     <div class="card">
         <div class="card-header">
             <h2>Configurações</h2>
