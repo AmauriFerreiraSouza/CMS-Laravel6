@@ -35,10 +35,13 @@ Route::prefix('painel')->group(function(){
 
     //rota para uso com resource
     Route::resource('users', 'Admin\UserController');
+    Route::resource('pages', 'Admin\PageController');
 
+    //rotas para o usuário
     Route::get('profile', 'Admin\ProfileController@index')->name('profile');
     Route::put('profile', 'Admin\ProfileController@save')->name('profile.save');
 
+    //rotas para as configurações
     Route::get('settings', 'Admin\SettingController@index')->name('settings');
     Route::put('settings', 'Admin\SettingController@save')->name('settings.save');
 

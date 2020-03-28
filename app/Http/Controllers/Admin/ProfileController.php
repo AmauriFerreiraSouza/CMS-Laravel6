@@ -10,11 +10,18 @@ use App\Http\Controllers\Controller;
 use App\User;
 
 class ProfileController extends Controller
-{
+{   
+    /**
+     * crio meu método construtor e passo o middleware
+     */
     public function __construct(){
         $this->middleware('auth');
     }
 
+    /**
+     * crio meu método que mostra minha tela de Usuário
+     * pego o id do usuário logado
+     */
     public function index(){
         $isLoggedId = intval(Auth::id());
 
@@ -28,6 +35,9 @@ class ProfileController extends Controller
         return redirect()->route('admin');
     }
 
+    /**
+     * crio o método que salva as auterações do usário logado
+     */
     public function save(Request $request){
         $isLoggedId = intval(Auth::id());
         $user = User::find($isLoggedId);

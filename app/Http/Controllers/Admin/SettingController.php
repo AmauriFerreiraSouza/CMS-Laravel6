@@ -34,6 +34,9 @@ class SettingController extends Controller
         ]);
     }
 
+    /**
+     * crio meu método que salva as alterações das configurações da página
+     */
     public function save(Request $request) {
 
         $data = $request->only([
@@ -57,6 +60,9 @@ class SettingController extends Controller
         ->with('warning', 'Informações salvas com sucesso!');
     }
 
+    /**
+     * crio meu método que valida os inputs
+     */
     protected function validator($data) {
         return Validator::make($data, [
             'title' => ['required','string', 'max:100'],
