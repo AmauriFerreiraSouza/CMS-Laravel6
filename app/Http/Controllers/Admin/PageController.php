@@ -160,12 +160,15 @@ class PageController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     * Remove uma página especifica
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $page = Page::find($id);
+        $page->delete();
+
+        return redirect()->route('pages.index');
     }
 }
