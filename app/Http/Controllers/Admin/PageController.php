@@ -131,7 +131,7 @@ class PageController extends Controller
             //se meu campo title não foi alterado continuo com a validação simples
             $validator = Validator::make($data, [
                 'title' => ['required', 'string', 'max:100'],
-                'body' => ['string', 'max:100']
+                'body' => ['string']
 
             ]);
         }   

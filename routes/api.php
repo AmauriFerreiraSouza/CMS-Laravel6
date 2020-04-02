@@ -16,3 +16,5 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//crio uma rota para fazer upload das minha imagens
+Route::post('/imageupload', 'Admin\UploadController@imageupload')->name('imageupload');
