@@ -19,7 +19,7 @@ class UploadController extends Controller
         $imageName = time().'.'.$ext;
         //defino o local de salvamento desta imagem    
         $request->file->move(public_path('media/images'), $imageName);
-        //apos o processo dou um retorno para o link da minha imagem    
+        //após o processo dou um retorno para o link completo da minha imagem    
         return [
             'location' => asset('media/images/'.$imageName)
         ];
