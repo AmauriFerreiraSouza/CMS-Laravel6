@@ -5,7 +5,23 @@
 @section('title', 'Painel')<!--coloco um titulo na minha aba-->
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="col-md-6">
+            <!--crio meu formulário de meses-->
+            <form method="GET">
+                <select onchange="this.form.submit()" name="interval" class="float-md-right">
+                    <option {{$dateInterval==30?'selected="selected"':''}} value="30">Últimos 30 dias</option>
+                    <option {{$dateInterval==60?'selected="selected"':''}} value="60">Últimos 2 meses</option>
+                    <option {{$dateInterval==90?'selected="selected"':''}} value="90">Últimos 3 meses</option>
+                    <option {{$dateInterval==120?'selected="selected"':''}} value="120">Últimos 6 meses</option>
+                </select>
+            </form>
+        </div>
+    </div>
+
 @endsection
 
 @section('content')
