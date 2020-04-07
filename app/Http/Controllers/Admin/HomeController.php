@@ -35,8 +35,7 @@ class HomeController extends Controller
         *armazeno dentro de uma variável a data atual, menos o valor do input enviado (-30 dias, -2 meses, -3 meses ou -6 meses)
         */
         $dateInterval = date('Y-m-d', strtotime('-'.$interval.'days'));
-
-        echo $dateInterval;
+        
         //trago a quantidade de datas maiores ou iguais a data vinda do dateInterval
         $visitsCount = Visitor::where('date_access', '>=', $dateInterval)->count();
 
