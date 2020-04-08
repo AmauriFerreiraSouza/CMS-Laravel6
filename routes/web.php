@@ -46,3 +46,5 @@ Route::prefix('painel')->group(function(){
     Route::put('settings', 'Admin\SettingController@save')->name('settings.save');
 
 });
+    //crio minha rota de fallback para erros de páginas
+    Route::fallback('Site\PageController@index');
