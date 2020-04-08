@@ -72,7 +72,8 @@
 
     <!-- footer start -->
     <footer class="footer">
-        <div class="footer_top">
+                                                {{-- Adicionado minha cor de fundo --}}
+        <div class="footer_top" style="background-color:{{$front_setting['bgcolor']}};">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4 col-md-6 col-lg-4">
