@@ -7,10 +7,14 @@
         "laravel"
     ],
 
+    "dependencies": {
+        "axios": ">=0.21.1"
+      },
+
     "devDependencies": {
         "axios": ">=0.21.1"
       },
-      
+
     "license": "MIT",
     "require": {
         "php": "8.0.9",
